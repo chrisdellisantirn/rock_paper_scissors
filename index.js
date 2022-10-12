@@ -21,13 +21,13 @@ for (let i = 0; i < 5; i++) {
 }
 
 if (userScore < computerScore) {
-  alert("😂 you lost to a machine. Better luck next time!");
-} else if (userScore > computerScore) {
+  alert("😂 The computer won. That's unfortunate.");
+} else {
   alert("You defeated the Superbot! 🤖");
 }
 
 function playRound(player, computer) {
-  if (player === computer) {
+  if (player == computer) {
     return "draw";
   } else if (player == "rock" && computer == "paper") {
     return "You lost";
@@ -37,9 +37,9 @@ function playRound(player, computer) {
     return "You won";
   } else if (player == "paper" && computer == "scissors") {
     return "You lost";
-  } else if (player == "sciccors" && computer == "rock") {
+  } else if (player == "scissors" && computer == "rock") {
     return "You lost";
-  } else if (player == "sciccors" && computer == "paper") {
+  } else if (player == "scissors" && computer == "paper") {
     return "You won";
   }
 }
