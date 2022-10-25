@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-</head>
-<body>
-    <script src="index.js"></script>
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/4f38d5210e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1 class="banner">ROCK PAPER SCISSORS</h1>
+    <div class="scoreboard">
+      <h2 class="instructions" id="instruct">Choose Your Weapon</h2>
+      <h3 class="details" id="detail">First to Five Wins</h3>
+    </div>
+
+    <div class="event">
+      <p class="playerChoice" id="player-pick">❔</p>
+      <p class="robotChoice" id="robo-pick">🖥️</p>
+    </div>
+
+    <div class="results">
+      <div>Player <span class="result-score" id="player-score">0</span></div>
+      <div>
+        SuperBot <span class="result-score" id="computer-score">0</span>
+      </div>
+    </div>
+
+    <div class="selections">
+      <button class="selection" id="rock">🪨</button>
+      <button class="selection" id="paper">🧻</button>
+      <button class="selection" id="scissors">✂️</button>
+    </div>
+
+    <footer class="footer">
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        ChrisDelliSantiRN
+      </p>
+      <a href="https://github.com/chrisdellisantirn" target="_blank"
+        ><i class="fa-brands fa-github"></i>
+      </a>
+    </footer>
+    <!-- Modal -->
+    <div class="modal" id="endgameModal">
+      <p class="modal-title" id="endgameMsg"></p>
+      <button class="btn btn-restart" id="restartBtn">Play again</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    </div>
+  </body>
 </html>

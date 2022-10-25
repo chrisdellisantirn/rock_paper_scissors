@@ -1,0 +1,222 @@
+* {
+  color: white;
+}
+
+@font-face {
+  font-family: 'silkscreennormal';
+  src: url('fonts/SYNNova-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'roboto';
+  src: url('fonts/Roboto-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* body */
+
+body {
+  background-color: #141221;
+}
+
+.banner {
+  display: flex;
+  font-family: 'silkscreennormal', sans-serif;
+  flex-direction: column;
+  align-items: center;
+  font-size: 100px;
+  margin: 20px;
+  padding: 10px;
+  text-shadow: 10px 10px #1f1e28;
+  background-color: rgba(55, 55, 66, 0.463)
+}
+
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instructions {
+  font-size: 70px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-family: 'roboto';
+}
+
+.details {
+  font-size: 40px;
+  margin: -10px;
+  font-family: 'roboto';
+}
+
+.event {
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+  margin-bottom: -100px;
+  gap: 175px;
+  font-family: 'silkscreennormal';
+}
+
+.playerChoice {
+  font-size: 150px;
+  text-shadow: 5px 5px #1f1e28;
+}
+
+.robotChoice {
+  font-size: 150px;
+}
+
+.selections {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+
+.selection {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 200px;
+  transition: transform 0.1s;
+  text-shadow: 1px 1px #1f1e28;
+}
+
+.selection:hover {
+    transform: scale(1.2);
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    gap: 145px;
+    margin-bottom: 120px;
+    margin-left: 25px;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 5px 5px #1f1e28;
+    font-family: 'silkscreennormal';
+}
+
+.result-score {
+    margin-left: 10px
+}
+
+/* MODALS */
+
+.modal {
+  position:fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 30px;
+  border-radius: 30px;
+  background-color: rgb(31, 31, 39);
+  text-align: center;
+  font-size: 50px;
+  user-select: none;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 150ms ease-in-out;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-title {
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.btn-restart:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+.btn-restart:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+.btn-restart:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+.btn-restart {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 20px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #f3f3f3;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 58px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* footer */
+
+footer {
+  background-color: #3d60ec88;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  font-size: 20px;
+  font-family: 'roboto', sans-serif;
+}
+
+.fa-github {
+  font-size: 36px;
+  transition: transform 0.1s;
+}
+
+.fa-github:hover {
+  transform: scale(1.5);
+}
