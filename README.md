@@ -1,4 +1,5 @@
-### Open page to start game ---> https://chrisdellisantirn.github.io/rock_paper_scissors/
-- Input selection in prompt box. 
-- 5 Rounds total are played.
-- Reload the page to play again.
+### Live demo ---> https://chrisdellisantirn.github.io/rock_paper_scissors/
+
+- Project consists of HTML, CSS, & Javascript
+- Play a game of chance with a lethal SuperBot!
+- Endless hours of enjoyment
