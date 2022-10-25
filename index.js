@@ -1,51 +1,130 @@
-let userScore = 0;
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+const playerScoreSpan = document.getElementById("player-score");
+const computerScoreSpan = document.getElementById("computer-score");
+const roboPick = document.getElementById("robo-pick");
+const playerPick = document.getElementById("player-pick");
+const result = document.getElementById("instruct");
+const explainer = document.getElementById("detail");
+const endgameModal = document.getElementById("endgameModal");
+const endgameMsg = document.getElementById("endgameMsg");
+const overlay = document.getElementById("overlay");
+const restartBtn = document.getElementById("restartBtn");
+
+rockButton.addEventListener("click", () => playGame("Rock"));
+paperButton.addEventListener("click", () => playGame("Paper"));
+scissorsButton.addEventListener("click", () => playGame("Scissors"));
+restartBtn.addEventListener("click", restartGame);
+overlay.addEventListener("click", closeEndgameModal);
+
+let playerScore = 0;
 let computerScore = 0;
-let round = 1;
 
-for (let i = 0; i < 5; i++) {
-  let playerSelection = prompt("Pick Rock, Paper, or Scissors!").toLowerCase();
-  let computerSelection = getComputerChoice();
-  let outcome = playRound(playerSelection, computerSelection);
-  if (outcome == "You lost") {
-    alert(`${outcome} round ${round}.`);
-    round += 1;
-    computerScore += 1;
-  } else if (outcome == "You won") {
-    alert(`${outcome} round ${round}!`);
-    round += 1;
-    userScore += 1;
+function playGame(userInput) {
+  if (playerScore == 5 || computerScore == 5) {
+    openEndgameModal();
+    setFinalMessage();
   } else {
-    alert(`Round ${round} was a ${outcome}.`);
-    round += 1;
+    let computerSelection = getComputerChoice();
+    let outcome = playRound(userInput, computerSelection);
+    updateChoice(computerSelection, userInput);
+    if (outcome == "You Lost") {
+      incrementScore(computerScoreSpan);
+      result.textContent = `${outcome}`;
+      explainer.textContent = `${computerSelection} beats ${userInput}`;
+      computerScore++;
+    } else if (outcome == "You Won!") {
+      incrementScore(playerScoreSpan);
+      result.textContent = `${outcome}`;
+      explainer.textContent = `${userInput} beats ${computerSelection}`;
+      playerScore++;
+    } else {
+      result.textContent = `${outcome}`;
+      explainer.textContent = "Try Again!";
+    }
+    if (playerScore == 5 || computerScore == 5) {
+      openEndgameModal();
+      setFinalMessage();
+    }
   }
-}
-
-if (userScore < computerScore) {
-  alert("😂 The computer won. That's unfortunate.");
-} else {
-  alert("You defeated the Superbot! 🤖");
 }
 
 function playRound(player, computer) {
   if (player == computer) {
-    return "draw";
-  } else if (player == "rock" && computer == "paper") {
-    return "You lost";
-  } else if (player == "rock" && computer == "scissors") {
-    return "You won";
-  } else if (player == "paper" && computer == "rock") {
-    return "You won";
-  } else if (player == "paper" && computer == "scissors") {
-    return "You lost";
-  } else if (player == "scissors" && computer == "rock") {
-    return "You lost";
-  } else if (player == "scissors" && computer == "paper") {
-    return "You won";
+    return "DRAW";
+  } else if (player == "Rock" && computer == "Paper") {
+    return "You Lost";
+  } else if (player == "Rock" && computer == "Scissors") {
+    return "You Won!";
+  } else if (player == "Paper" && computer == "Rock") {
+    return "You Won!";
+  } else if (player == "Paper" && computer == "Scissors") {
+    return "You Lost";
+  } else if (player == "Scissors" && computer == "Rock") {
+    return "You Lost";
+  } else if (player == "Scissors" && computer == "Paper") {
+    return "You Won!";
   }
 }
 
 function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
+  const choices = ["Rock", "Paper", "Scissors"];
   pick = choices[Math.floor(Math.random() * choices.length)];
   return pick;
+}
+
+function incrementScore(score) {
+  score.innerText = parseInt(score.innerText) + 1;
+}
+
+function updateChoice(pick1, pick2) {
+  switch (pick1) {
+    case "Rock":
+      roboPick.textContent = "🪨";
+      break;
+    case "Paper":
+      roboPick.textContent = "🧻";
+      break;
+    case "Scissors":
+      roboPick.textContent = "✂️";
+      break;
+  }
+  switch (pick2) {
+    case "Rock":
+      playerPick.textContent = "🪨";
+      break;
+    case "Paper":
+      playerPick.textContent = "🧻";
+      break;
+    case "Scissors":
+      playerPick.textContent = "✂️";
+      break;
+  }
+}
+
+function openEndgameModal() {
+  endgameModal.classList.add("active");
+  overlay.classList.add("active");
+}
+function closeEndgameModal() {
+  endgameModal.classList.remove("active");
+  overlay.classList.remove("active");
+}
+function setFinalMessage() {
+  return playerScore > computerScore
+    ? (endgameMsg.textContent = "You won!")
+    : (endgameMsg.textContent = "You lost...");
+}
+function restartGame() {
+  playerScore = 0;
+  computerScore = 0;
+  result.textContent = "Choose Your Weapon";
+  explainer.textContent = "First to Five Wins";
+  playerScoreSpan.textContent = "0";
+  computerScoreSpan.textContent = "0";
+  playerPick.textContent = "❔";
+  roboPick.textContent = "🖥️";
+  endgameModal.classList.remove("active");
+  overlay.classList.remove("active");
 }
