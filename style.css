@@ -17,8 +17,11 @@
 
 /* body */
 
-body {
+body, html {
+  display: flex;
+  flex-direction: column;
   background-color: #141221;
+  height: 100%;
 }
 
 .banner {
@@ -26,8 +29,8 @@ body {
   font-family: 'silkscreennormal', sans-serif;
   flex-direction: column;
   align-items: center;
-  font-size: 100px;
-  margin: 20px;
+  font-size: 65px;
+  margin: 0px;
   padding: 10px;
   text-shadow: 10px 10px #1f1e28;
   background-color: rgba(55, 55, 66, 0.463)
@@ -40,41 +43,41 @@ body {
 }
 
 .instructions {
-  font-size: 70px;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  font-size: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   font-family: 'roboto';
 }
 
 .details {
-  font-size: 40px;
-  margin: -10px;
+  font-size: 30px;
+  margin: 0px;
   font-family: 'roboto';
 }
 
 .event {
   display: flex;
   justify-content: center;
-  margin-top: -40px;
+  margin-top: -80px;
   margin-bottom: -100px;
-  gap: 175px;
+  gap: 185px;
   font-family: 'silkscreennormal';
 }
 
 .playerChoice {
-  font-size: 150px;
+  font-size: 110px;
   text-shadow: 5px 5px #1f1e28;
 }
 
 .robotChoice {
-  font-size: 150px;
+  font-size: 110px;
 }
 
 .selections {
   display: flex;
   justify-content: center;
   gap: 40px;
-  margin-top: 35px;
+  margin-top: -80px;
   margin-bottom: 50px;
 }
 
@@ -83,7 +86,7 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
-  font-size: 200px;
+  font-size: 150px;
   transition: transform 0.1s;
   text-shadow: 1px 1px #1f1e28;
 }
@@ -95,10 +98,10 @@ body {
 .results {
     display: flex;
     justify-content: center;
-    gap: 145px;
+    gap: 135px;
     margin-bottom: 120px;
     margin-left: 25px;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     text-shadow: 5px 5px #1f1e28;
     font-family: 'silkscreennormal';
@@ -200,20 +203,18 @@ body {
 
 footer {
   background-color: #3d60ec88;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: auto;
   gap: 10px;
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'roboto', sans-serif;
 }
 
 .fa-github {
-  font-size: 36px;
+  font-size: 24px;
   transition: transform 0.1s;
 }
 

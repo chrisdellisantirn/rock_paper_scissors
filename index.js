@@ -81,7 +81,7 @@ function incrementScore(score) {
 function updateChoice(pick1, pick2) {
   switch (pick1) {
     case "Rock":
-      roboPick.textContent = "🪨";
+      roboPick.textContent = "🗿";
       break;
     case "Paper":
       roboPick.textContent = "🧻";
@@ -92,7 +92,7 @@ function updateChoice(pick1, pick2) {
   }
   switch (pick2) {
     case "Rock":
-      playerPick.textContent = "🪨";
+      playerPick.textContent = "🗿";
       break;
     case "Paper":
       playerPick.textContent = "🧻";
