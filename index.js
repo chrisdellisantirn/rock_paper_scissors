@@ -84,7 +84,7 @@ function updateChoice(pick1, pick2) {
       roboPick.textContent = "🗿";
       break;
     case "Paper":
-      roboPick.textContent = "🧻";
+      roboPick.textContent = "📰";
       break;
     case "Scissors":
       roboPick.textContent = "✂️";
@@ -95,7 +95,7 @@ function updateChoice(pick1, pick2) {
       playerPick.textContent = "🗿";
       break;
     case "Paper":
-      playerPick.textContent = "🧻";
+      playerPick.textContent = "📰";
       break;
     case "Scissors":
       playerPick.textContent = "✂️";
